@@ -1,95 +1,101 @@
-
 import { useState, useEffect } from "react";
 import { Helmet } from "react-helmet";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import VehicleCard from "@/components/VehicleCard";
 import VehicleFilters from "@/components/VehicleFilters";
-import { coastersData } from "@/data/mockData";
 import { VehicleType } from "@/types";
+import { useVehicles } from "@/hooks/useVehicles";
 
 const Coasters = () => {
-  const [filteredVehicles, setFilteredVehicles] = useState<VehicleType[]>(coastersData);
-  const [loading, setLoading] = useState(true);
-  
+  const { vehicles: allVehicles, loading } = useVehicles({
+    vehicleType: "Coaster",
+  });
+  const [filteredVehicles, setFilteredVehicles] = useState<VehicleType[]>([]);
+
   // Extract unique brands and locations
-  const brands = [...new Set(coastersData.map(coaster => coaster.brand))];
-  const locations = [...new Set(coastersData.map(coaster => coaster.location))];
-  
+  const brands = [...new Set(allVehicles.map((coaster) => coaster.brand))];
+  const locations = [
+    ...new Set(allVehicles.map((coaster) => coaster.location)),
+  ];
+
   // Apply filters with new checkbox-based logic
   const handleFilterChange = (filters: any) => {
-    let filtered = [...coastersData];
-    
+    let filtered = [...allVehicles];
+
     // Apply brand filter (multiple selections)
     if (filters.brands && filters.brands.length > 0) {
-      filtered = filtered.filter(coaster => 
-        filters.brands.some((brand: string) => 
+      filtered = filtered.filter((coaster) =>
+        filters.brands.some((brand: string) =>
           coaster.brand.toLowerCase().includes(brand.toLowerCase())
         )
       );
     }
-    
+
     // Apply location filter (multiple selections)
     if (filters.locations && filters.locations.length > 0) {
-      filtered = filtered.filter(coaster => 
-        filters.locations.some((location: string) => 
+      filtered = filtered.filter((coaster) =>
+        filters.locations.some((location: string) =>
           coaster.location.toLowerCase().includes(location.toLowerCase())
         )
       );
     }
-    
+
     // Apply price filter
     if (filters.priceRange) {
-      filtered = filtered.filter(coaster => 
-        coaster.pricePerDay >= filters.priceRange.min && 
-        coaster.pricePerDay <= filters.priceRange.max
+      filtered = filtered.filter(
+        (coaster) =>
+          coaster.pricePerDay >= filters.priceRange.min &&
+          coaster.pricePerDay <= filters.priceRange.max
       );
     }
-    
+
     // Apply sorting
     if (filters.sortBy === "price_low_high") {
       filtered.sort((a, b) => a.pricePerDay - b.pricePerDay);
     } else if (filters.sortBy === "price_high_low") {
       filtered.sort((a, b) => b.pricePerDay - a.pricePerDay);
     }
-    
+
     setFilteredVehicles(filtered);
   };
-  
-  // Simulate loading
+
+  // Initialize filtered vehicles when allVehicles changes
   useEffect(() => {
-    setTimeout(() => {
-      setLoading(false);
-    }, 500);
-  }, []);
-  
+    setFilteredVehicles(allVehicles);
+  }, [allVehicles]);
+
   return (
     <>
       <Helmet>
         <title>Coasters for Rent - Swift Ride</title>
-        <meta name="description" content="Browse and book our selection of quality coasters for rent. Perfect for small to medium sized groups and special occasions." />
+        <meta
+          name="description"
+          content="Browse and book our selection of quality coasters for rent. Perfect for small to medium sized groups."
+        />
       </Helmet>
-      
+
       <Navbar />
-      
+
       <main className="pt-20 pb-16 bg-gray-50 min-h-screen w-full">
         <div className="content-container mx-auto animate-fade-in">
           <div className="py-8">
             <h1 className="text-3xl font-bold mb-2">Coasters for Rent</h1>
             <p className="text-gray-600 mb-6">
-              Our coasters are compact and versatile, perfect for small to medium sized groups.
-              Choose from top brands like Toyota, Yutong, and Higer for a comfortable journey.
+              Our coasters are perfect for small to medium sized groups. Choose
+              from top brands like Toyota, Mitsubishi, and Nissan for a
+              comfortable journey.
             </p>
-            
+
             <div className="lg:flex gap-6">
               {/* Filters */}
-              <VehicleFilters 
+              <VehicleFilters
                 vehicleType="coaster"
                 brands={brands}
                 locations={locations}
                 onFilterChange={handleFilterChange}
               />
-              
+
               {/* Results */}
               <div className="w-full">
                 {loading ? (
@@ -102,7 +108,9 @@ const Coasters = () => {
                     <div className="text-3xl text-gray-400 mb-4">
                       <i className="fas fa-search"></i>
                     </div>
-                    <h3 className="text-xl font-semibold mb-2">No coasters found</h3>
+                    <h3 className="text-xl font-semibold mb-2">
+                      No coasters found
+                    </h3>
                     <p className="text-gray-600">
                       Try adjusting your filters to find available coasters.
                     </p>
@@ -119,7 +127,7 @@ const Coasters = () => {
           </div>
         </div>
       </main>
-      
+
       <Footer />
     </>
   );
