@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { VehicleType, RentalPlan } from "@/types";
@@ -22,10 +21,16 @@ const VehicleCard = ({ vehicle }: VehicleCardProps) => {
   };
 
   // Apply premium pricing for premium brands
-  const isPremiumBrand = ["BMW", "Audi", "Mercedes", "MG"].includes(vehicle.brand);
+  const isPremiumBrand = ["BMW", "Audi", "Mercedes", "MG"].includes(
+    vehicle.brand
+  );
   const premiumMultiplier = isPremiumBrand ? 1.5 : 1;
-  
-  const price = calculatePrice(vehicle.type, selectedPlan, withDriver) * premiumMultiplier;
+
+  const price =
+    calculatePrice(vehicle.type, selectedPlan, withDriver) * premiumMultiplier;
+
+  // Get the correct vehicle ID (handle both _id and id)
+  const vehicleId = vehicle._id || vehicle.id;
 
   // Clear any potential booking state from localStorage on component mount
   useEffect(() => {
@@ -53,16 +58,31 @@ const VehicleCard = ({ vehicle }: VehicleCardProps) => {
         {/* Availability badge */}
         <div className="absolute top-0 right-0 m-3">
           {vehicle.available ? (
-            <Badge variant="default" className="bg-green-500 hover:bg-green-600">Available</Badge>
+            <Badge
+              variant="default"
+              className="bg-green-500 hover:bg-green-600"
+            >
+              Available
+            </Badge>
           ) : (
-            <Badge variant="secondary" className="bg-gray-500 hover:bg-gray-600">Unavailable</Badge>
+            <Badge
+              variant="secondary"
+              className="bg-gray-500 hover:bg-gray-600"
+            >
+              Unavailable
+            </Badge>
           )}
         </div>
-        
+
         {/* Premium badge for premium brands */}
         {isPremiumBrand && (
           <div className="absolute top-0 left-0 m-3">
-            <Badge variant="default" className="bg-amber-500 hover:bg-amber-600">Premium</Badge>
+            <Badge
+              variant="default"
+              className="bg-amber-500 hover:bg-amber-600"
+            >
+              Premium
+            </Badge>
           </div>
         )}
       </div>
@@ -70,7 +90,9 @@ const VehicleCard = ({ vehicle }: VehicleCardProps) => {
       {/* Vehicle Details */}
       <div className="p-4">
         <div className="flex justify-between items-start mb-2">
-          <h3 className="text-lg font-semibold">{vehicle.brand} {vehicle.name}</h3>
+          <h3 className="text-lg font-semibold">
+            {vehicle.brand} {vehicle.name}
+          </h3>
           <span className="text-xs bg-primary/10 text-primary px-2 py-1 rounded">
             {vehicle.type.charAt(0).toUpperCase() + vehicle.type.slice(1)}
           </span>
@@ -101,7 +123,9 @@ const VehicleCard = ({ vehicle }: VehicleCardProps) => {
         {/* Rental Options */}
         <div className="grid grid-cols-2 gap-3 mb-4">
           <div>
-            <label className="block text-xs text-gray-600 mb-1">Rental Plan</label>
+            <label className="block text-xs text-gray-600 mb-1">
+              Rental Plan
+            </label>
             <select
               className="w-full px-2 py-1.5 border border-gray-300 rounded text-sm"
               value={selectedPlan}
@@ -115,7 +139,9 @@ const VehicleCard = ({ vehicle }: VehicleCardProps) => {
             </select>
           </div>
           <div>
-            <label className="block text-xs text-gray-600 mb-1">Driver Option</label>
+            <label className="block text-xs text-gray-600 mb-1">
+              Driver Option
+            </label>
             <select
               className="w-full px-2 py-1.5 border border-gray-300 rounded text-sm"
               value={withDriver ? "with" : "without"}
@@ -128,11 +154,17 @@ const VehicleCard = ({ vehicle }: VehicleCardProps) => {
           </div>
         </div>
 
-        {/* Book Button - Changed label to Book Now */}
-        <Link 
-          to={vehicle.available ? `/booking/${vehicle.id}?plan=${selectedPlan}&driver=${withDriver ? 'true' : 'false'}` : "#"}
+        {/* Book Button */}
+        <Link
+          to={
+            vehicle.available
+              ? `/booking/${vehicleId}?plan=${selectedPlan}&driver=${
+                  withDriver ? "true" : "false"
+                }`
+              : "#"
+          }
           className={`w-full py-2 px-4 rounded font-medium text-center block ${
-            vehicle.available 
+            vehicle.available
               ? "bg-primary text-white hover:bg-primary-dark transition-colors"
               : "bg-gray-300 text-gray-500 cursor-not-allowed"
           }`}

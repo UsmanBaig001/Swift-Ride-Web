@@ -25,6 +25,7 @@ export interface UserProfile {
 // Vehicle related types
 export interface VehicleType {
   id: string;
+  _id?: string; // Optional MongoDB ID
   name: string;
   brand: string;
   category?: "car" | "bus" | "minibus" | "coaster";
@@ -69,15 +70,30 @@ export interface BookingFormData {
   vehicleId?: string;
 }
 
+export type BookingStatus = "pending" | "confirmed" | "cancelled" | "completed";
+
 export interface Booking {
-  id: string;
-  userId: string;
-  vehicleId: string;
-  startDate: Date;
-  endDate: Date;
-  status: "pending" | "confirmed" | "cancelled" | "completed";
-  totalPrice: number;
-  createdAt: Date;
+  _id: string;
+  user: string | User;
+  vehicle: string | VehicleType;
+  startDate: string;
+  endDate: string;
+  includeDriver: boolean;
+  price: number;
+  status: BookingStatus;
+  pickupLocation: string;
+  dropLocation: string;
+  notes?: string;
+  sharedRide?: {
+    enabled: boolean;
+    riderInfo?: {
+      name: string;
+      phone: string;
+      email?: string;
+    };
+  };
+  createdAt: string;
+  updatedAt: string;
 }
 
 // Chat related types

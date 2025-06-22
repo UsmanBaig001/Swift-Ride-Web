@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -24,6 +23,7 @@ import Dashboard from "./pages/Dashboard";
 import Settings from "./pages/Settings";
 import NotFound from "./pages/NotFound";
 import BookingPage from "./pages/BookingPage";
+import BookingDetails from "./pages/BookingDetails";
 import AdminDashboard from "./pages/Admin/AdminDashboard";
 import Terms from "./pages/Terms";
 import Privacy from "./pages/Privacy";
@@ -36,7 +36,7 @@ const queryClient = new QueryClient();
 
 const App = () => {
   const [user, setUser] = useState<User | null>(null);
-  
+
   useEffect(() => {
     // Check if user is logged in from localStorage
     const storedUser = localStorage.getItem("user");
@@ -78,6 +78,10 @@ const App = () => {
               <Route path="/minibuses" element={<MiniBuses />} />
               <Route path="/coasters" element={<Coasters />} />
               <Route path="/booking/:id" element={<BookingPage />} />
+              <Route
+                path="/dashboard/bookings/:id"
+                element={<BookingDetails />}
+              />
               <Route path="/about" element={<About />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/login" element={<Login />} />

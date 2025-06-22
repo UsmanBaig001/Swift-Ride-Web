@@ -13,6 +13,19 @@ interface UseVehiclesReturn {
   refetch: () => void;
 }
 
+// Helper function to map frontend type to backend type
+const mapVehicleType = (
+  type: string
+): "car" | "bus" | "minibus" | "coaster" => {
+  const typeMap: Record<string, "car" | "bus" | "minibus" | "coaster"> = {
+    Car: "car",
+    Bus: "bus",
+    "Mini Bus": "minibus",
+    Coaster: "coaster",
+  };
+  return typeMap[type] || "car";
+};
+
 export const useVehicles = ({
   vehicleType,
 }: UseVehiclesProps = {}): UseVehiclesReturn => {
@@ -31,16 +44,19 @@ export const useVehicles = ({
         params.append("vehicleType", vehicleType);
       }
 
+      console.log("Fetching vehicles with params:", params.toString());
       const response = await axios.get(`/vehicles?${params.toString()}`);
+      console.log("API Response:", response.data);
 
       // Map the API response to match our frontend VehicleType
       const mappedVehicles: VehicleType[] = response.data.data.map(
         (vehicle: any) => ({
           id: vehicle._id,
+          _id: vehicle._id,
           name: vehicle.name,
           brand: vehicle.brand,
-          type: vehicle.vehicleType.toLowerCase().replace(" ", ""),
-          category: vehicle.vehicleType.toLowerCase().replace(" ", ""),
+          type: mapVehicleType(vehicle.vehicleType),
+          category: mapVehicleType(vehicle.vehicleType),
           image: vehicle.image,
           seats: vehicle.seats,
           seatingCapacity: vehicle.seats,
@@ -48,14 +64,16 @@ export const useVehicles = ({
           pricePerHour: vehicle.rentalPlan.basePrice / 12,
           pricePerDay: vehicle.rentalPlan.basePrice,
           location: vehicle.location,
-          features: vehicle.features,
+          features: vehicle.features || [],
           available: vehicle.status === "Available",
           availability: vehicle.status === "Available",
         })
       );
 
+      console.log("Mapped vehicles:", mappedVehicles);
       setVehicles(mappedVehicles);
     } catch (err) {
+      console.error("Error fetching vehicles:", err);
       setError(err instanceof Error ? err.message : "Failed to fetch vehicles");
     } finally {
       setLoading(false);

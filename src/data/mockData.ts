@@ -3,21 +3,43 @@ import { v4 as uuidv4 } from "uuid";
 
 // City locations in Pakistan
 const pakistanCities = [
-  "Karachi", "Lahore", "Islamabad", "Rawalpindi", "Peshawar", 
-  "Multan", "Faisalabad", "Quetta", "Sialkot", "Gujranwala"
+  "Karachi",
+  "Lahore",
+  "Islamabad",
+  "Rawalpindi",
+  "Peshawar",
+  "Multan",
+  "Faisalabad",
+  "Quetta",
+  "Sialkot",
+  "Gujranwala",
 ];
 
 // Vehicle features
 const carFeatures = [
-  "Air Conditioning", "Bluetooth", "Leather Seats", "GPS Navigation", 
-  "Reverse Camera", "Sunroof", "Cruise Control", "Child Seat", 
-  "USB Charging", "Heated Seats"
+  "Air Conditioning",
+  "Bluetooth",
+  "Leather Seats",
+  "GPS Navigation",
+  "Reverse Camera",
+  "Sunroof",
+  "Cruise Control",
+  "Child Seat",
+  "USB Charging",
+  "Heated Seats",
 ];
 
 const busFeatures = [
-  "Air Conditioning", "Reclining Seats", "Onboard Toilet", "TV/DVD",
-  "WiFi", "Charging Ports", "Luggage Space", "Microphone", 
-  "Refrigerator", "Entertainment System"
+  "Air Conditioning",
+  "Reclining Seats",
+  "Onboard Toilet",
+  "TV/DVD",
+  "WiFi",
+  "Charging Ports",
+  "Luggage Space",
+  "Microphone",
+  "Refrigerator",
+  "Entertainment System",
 ];
 
 const getRandomItems = (array: string[], count: number): string[] => {
@@ -28,12 +50,13 @@ const getRandomItems = (array: string[], count: number): string[] => {
 // Mock Cars Data
 export const carsData: VehicleType[] = [
   {
-    id: uuidv4(),
+    id: "car-1",
     name: "Camry",
     brand: "Toyota",
     type: "car",
     category: "car",
-    image: "https://images.unsplash.com/photo-1550355291-bbee04a92027?q=80&w=1936&auto=format&fit=crop",
+    image:
+      "https://images.unsplash.com/photo-1550355291-bbee04a92027?q=80&w=1936&auto=format&fit=crop",
     seatingCapacity: 5,
     seats: 5,
     pricePerHour: 5000 / 12,
@@ -42,15 +65,16 @@ export const carsData: VehicleType[] = [
     location: "Karachi",
     features: getRandomItems(carFeatures, 5),
     available: true,
-    availability: true
+    availability: true,
   },
   {
-    id: uuidv4(),
+    id: "car-2",
     name: "Civic",
     brand: "Honda",
     type: "car",
     category: "car",
-    image: "https://images.unsplash.com/photo-1609521263047-f8f205293f24?q=80&w=2940&auto=format&fit=crop",
+    image:
+      "https://images.unsplash.com/photo-1609521263047-f8f205293f24?q=80&w=2940&auto=format&fit=crop",
     seatingCapacity: 5,
     seats: 5,
     pricePerHour: 5500 / 12,
@@ -59,15 +83,16 @@ export const carsData: VehicleType[] = [
     location: "Lahore",
     features: getRandomItems(carFeatures, 5),
     available: true,
-    availability: true
+    availability: true,
   },
   {
-    id: uuidv4(),
+    id: "car-3",
     name: "3 Series",
     brand: "BMW",
     type: "car",
     category: "car",
-    image: "https://images.unsplash.com/photo-1556189250-72ba954cfc2b?q=80&w=2940&auto=format&fit=crop",
+    image:
+      "https://images.unsplash.com/photo-1556189250-72ba954cfc2b?q=80&w=2940&auto=format&fit=crop",
     seatingCapacity: 5,
     seats: 5,
     pricePerHour: 8000 / 12,
@@ -76,15 +101,16 @@ export const carsData: VehicleType[] = [
     location: "Islamabad",
     features: getRandomItems(carFeatures, 6),
     available: true,
-    availability: true
+    availability: true,
   },
   {
-    id: uuidv4(),
+    id: "car-4",
     name: "A4",
     brand: "Audi",
     type: "car",
     category: "car",
-    image: "https://images.unsplash.com/photo-1606664515524-ed2f786a0bd9?q=80&w=2940&auto=format&fit=crop",
+    image:
+      "https://images.unsplash.com/photo-1606664515524-ed2f786a0bd9?q=80&w=2940&auto=format&fit=crop",
     seatingCapacity: 5,
     seats: 5,
     pricePerHour: 7500 / 12,
@@ -93,15 +119,16 @@ export const carsData: VehicleType[] = [
     location: "Karachi",
     features: getRandomItems(carFeatures, 6),
     available: true,
-    availability: true
+    availability: true,
   },
   {
-    id: uuidv4(),
+    id: "car-5",
     name: "Swift",
     brand: "Suzuki",
     type: "car",
     category: "car",
-    image: "https://images.unsplash.com/photo-1580273916550-e323be2ae537?q=80&w=2864&auto=format&fit=crop",
+    image:
+      "https://images.unsplash.com/photo-1580273916550-e323be2ae537?q=80&w=2864&auto=format&fit=crop",
     seatingCapacity: 5,
     seats: 5,
     pricePerHour: 4000 / 12,
@@ -110,15 +137,16 @@ export const carsData: VehicleType[] = [
     location: "Lahore",
     features: getRandomItems(carFeatures, 4),
     available: true,
-    availability: true
+    availability: true,
   },
   {
-    id: uuidv4(),
+    id: "car-6",
     name: "Elantra",
     brand: "Hyundai",
     type: "car",
     category: "car",
-    image: "https://images.unsplash.com/photo-1552642986-ccf41e081e57?q=80&w=2787&auto=format&fit=crop",
+    image:
+      "https://images.unsplash.com/photo-1552642986-ccf41e081e57?q=80&w=2787&auto=format&fit=crop",
     seatingCapacity: 5,
     seats: 5,
     pricePerHour: 5200 / 12,
@@ -127,15 +155,16 @@ export const carsData: VehicleType[] = [
     location: "Islamabad",
     features: getRandomItems(carFeatures, 4),
     available: true,
-    availability: true
+    availability: true,
   },
   {
-    id: uuidv4(),
+    id: "car-7",
     name: "Sportage",
     brand: "KIA",
     type: "car",
     category: "car",
-    image: "https://images.unsplash.com/photo-1552518117-d0ec8bfb9654?q=80&w=2940&auto=format&fit=crop",
+    image:
+      "https://images.unsplash.com/photo-1552518117-d0ec8bfb9654?q=80&w=2940&auto=format&fit=crop",
     seatingCapacity: 5,
     seats: 5,
     pricePerHour: 6500 / 12,
@@ -144,15 +173,16 @@ export const carsData: VehicleType[] = [
     location: "Rawalpindi",
     features: getRandomItems(carFeatures, 5),
     available: true,
-    availability: true
+    availability: true,
   },
   {
-    id: uuidv4(),
+    id: "car-8",
     name: "HS",
     brand: "MG",
     type: "car",
     category: "car",
-    image: "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?q=80&w=2940&auto=format&fit=crop",
+    image:
+      "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?q=80&w=2940&auto=format&fit=crop",
     seatingCapacity: 5,
     seats: 5,
     pricePerHour: 6000 / 12,
@@ -161,15 +191,16 @@ export const carsData: VehicleType[] = [
     location: "Karachi",
     features: getRandomItems(carFeatures, 5),
     available: false,
-    availability: false
+    availability: false,
   },
   {
-    id: uuidv4(),
+    id: "car-9",
     name: "Corolla",
     brand: "Toyota",
     type: "car",
     category: "car",
-    image: "https://images.unsplash.com/photo-1626668893528-1e8d41364c00?q=80&w=2940&auto=format&fit=crop",
+    image:
+      "https://images.unsplash.com/photo-1626668893528-1e8d41364c00?q=80&w=2940&auto=format&fit=crop",
     seatingCapacity: 5,
     seats: 5,
     pricePerHour: 5100 / 12,
@@ -178,15 +209,16 @@ export const carsData: VehicleType[] = [
     location: "Multan",
     features: getRandomItems(carFeatures, 4),
     available: true,
-    availability: true
+    availability: true,
   },
   {
-    id: uuidv4(),
+    id: "car-10",
     name: "5 Series",
     brand: "BMW",
     type: "car",
     category: "car",
-    image: "https://images.unsplash.com/photo-1549925862-990918801a5c?q=80&w=2940&auto=format&fit=crop",
+    image:
+      "https://images.unsplash.com/photo-1549925862-990918801a5c?q=80&w=2940&auto=format&fit=crop",
     seatingCapacity: 5,
     seats: 5,
     pricePerHour: 9000 / 12,
@@ -195,15 +227,16 @@ export const carsData: VehicleType[] = [
     location: "Islamabad",
     features: getRandomItems(carFeatures, 7),
     available: true,
-    availability: true
+    availability: true,
   },
   {
-    id: uuidv4(),
+    id: "car-11",
     name: "Accord",
     brand: "Honda",
     type: "car",
     category: "car",
-    image: "https://images.unsplash.com/photo-1592365559729-1a6f4820e186?q=80&w=2748&auto=format&fit=crop",
+    image:
+      "https://images.unsplash.com/photo-1592365559729-1a6f4820e186?q=80&w=2748&auto=format&fit=crop",
     seatingCapacity: 5,
     seats: 5,
     pricePerHour: 5800 / 12,
@@ -212,15 +245,16 @@ export const carsData: VehicleType[] = [
     location: "Lahore",
     features: getRandomItems(carFeatures, 5),
     available: true,
-    availability: true
+    availability: true,
   },
   {
-    id: uuidv4(),
+    id: "car-12",
     name: "A6",
     brand: "Audi",
     type: "car",
     category: "car",
-    image: "https://images.unsplash.com/photo-1541348263662-e068662d82af?q=80&w=2940&auto=format&fit=crop",
+    image:
+      "https://images.unsplash.com/photo-1541348263662-e068662d82af?q=80&w=2940&auto=format&fit=crop",
     seatingCapacity: 5,
     seats: 5,
     pricePerHour: 8500 / 12,
@@ -229,19 +263,20 @@ export const carsData: VehicleType[] = [
     location: "Karachi",
     features: getRandomItems(carFeatures, 6),
     available: true,
-    availability: true
-  }
+    availability: true,
+  },
 ];
 
 // Mock Buses Data
 export const busesData: VehicleType[] = [
   {
-    id: uuidv4(),
-    name: "ZK6107HA",
-    brand: "Yutong",
+    id: "bus-1",
+    name: "Luxury Coach",
+    brand: "Daewoo",
     type: "bus",
     category: "bus",
-    image: "https://images.unsplash.com/photo-1570125909232-eb263c188f7e?q=80&w=2940&auto=format&fit=crop",
+    image:
+      "https://images.unsplash.com/photo-1570125909232-eb263c188f7e?q=80&w=2940&auto=format&fit=crop",
     seatingCapacity: 50,
     seats: 50,
     pricePerHour: 25000 / 12,
@@ -250,15 +285,16 @@ export const busesData: VehicleType[] = [
     location: "Karachi",
     features: getRandomItems(busFeatures, 5),
     available: true,
-    availability: true
+    availability: true,
   },
   {
-    id: uuidv4(),
+    id: "bus-2",
     name: "AK1J",
     brand: "Hino",
     type: "bus",
     category: "bus",
-    image: "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?q=80&w=2898&auto=format&fit=crop",
+    image:
+      "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?q=80&w=2898&auto=format&fit=crop",
     seatingCapacity: 55,
     seats: 55,
     pricePerHour: 28000 / 12,
@@ -267,15 +303,16 @@ export const busesData: VehicleType[] = [
     location: "Lahore",
     features: getRandomItems(busFeatures, 6),
     available: true,
-    availability: true
+    availability: true,
   },
   {
-    id: uuidv4(),
+    id: "bus-3",
     name: "LT134",
     brand: "Isuzu",
     type: "bus",
     category: "bus",
-    image: "https://images.unsplash.com/photo-1464219789935-c2d9d9aba644?q=80&w=2660&auto=format&fit=crop",
+    image:
+      "https://images.unsplash.com/photo-1464219789935-c2d9d9aba644?q=80&w=2660&auto=format&fit=crop",
     seatingCapacity: 48,
     seats: 48,
     pricePerHour: 26000 / 12,
@@ -284,15 +321,16 @@ export const busesData: VehicleType[] = [
     location: "Islamabad",
     features: getRandomItems(busFeatures, 5),
     available: true,
-    availability: true
+    availability: true,
   },
   {
-    id: uuidv4(),
+    id: "bus-4",
     name: "Lion's Coach",
     brand: "MAN",
     type: "bus",
     category: "bus",
-    image: "https://images.unsplash.com/photo-1494515843206-f3117d3f51b7?q=80&w=2944&auto=format&fit=crop",
+    image:
+      "https://images.unsplash.com/photo-1494515843206-f3117d3f51b7?q=80&w=2944&auto=format&fit=crop",
     seatingCapacity: 60,
     seats: 60,
     pricePerHour: 30000 / 12,
@@ -301,15 +339,16 @@ export const busesData: VehicleType[] = [
     location: "Karachi",
     features: getRandomItems(busFeatures, 7),
     available: true,
-    availability: true
+    availability: true,
   },
   {
-    id: uuidv4(),
+    id: "bus-5",
     name: "ZK6118HGA",
     brand: "Yutong",
     type: "bus",
     category: "bus",
-    image: "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=80&w=2821&auto=format&fit=crop",
+    image:
+      "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=80&w=2821&auto=format&fit=crop",
     seatingCapacity: 52,
     seats: 52,
     pricePerHour: 27000 / 12,
@@ -318,15 +357,16 @@ export const busesData: VehicleType[] = [
     location: "Lahore",
     features: getRandomItems(busFeatures, 6),
     available: true,
-    availability: true
+    availability: true,
   },
   {
-    id: uuidv4(),
+    id: "bus-6",
     name: "RK1J",
     brand: "Hino",
     type: "bus",
     category: "bus",
-    image: "https://images.unsplash.com/photo-1494515426402-f1980ace7a9c?q=80&w=2748&auto=format&fit=crop",
+    image:
+      "https://images.unsplash.com/photo-1494515426402-f1980ace7a9c?q=80&w=2748&auto=format&fit=crop",
     seatingCapacity: 58,
     seats: 58,
     pricePerHour: 29000 / 12,
@@ -335,15 +375,16 @@ export const busesData: VehicleType[] = [
     location: "Islamabad",
     features: getRandomItems(busFeatures, 6),
     available: false,
-    availability: false
+    availability: false,
   },
   {
-    id: uuidv4(),
+    id: "bus-7",
     name: "LV134",
     brand: "Isuzu",
     type: "bus",
     category: "bus",
-    image: "https://images.unsplash.com/photo-1570125909517-53cb21c89ff2?q=80&w=2940&auto=format&fit=crop",
+    image:
+      "https://images.unsplash.com/photo-1570125909517-53cb21c89ff2?q=80&w=2940&auto=format&fit=crop",
     seatingCapacity: 45,
     seats: 45,
     pricePerHour: 24000 / 12,
@@ -352,15 +393,16 @@ export const busesData: VehicleType[] = [
     location: "Rawalpindi",
     features: getRandomItems(busFeatures, 5),
     available: true,
-    availability: true
+    availability: true,
   },
   {
-    id: uuidv4(),
+    id: "bus-8",
     name: "Neoplan Cityliner",
     brand: "MAN",
     type: "bus",
     category: "bus",
-    image: "https://images.unsplash.com/photo-1534251623184-22dbf8133f2d?q=80&w=2787&auto=format&fit=crop",
+    image:
+      "https://images.unsplash.com/photo-1534251623184-22dbf8133f2d?q=80&w=2787&auto=format&fit=crop",
     seatingCapacity: 62,
     seats: 62,
     pricePerHour: 32000 / 12,
@@ -369,19 +411,20 @@ export const busesData: VehicleType[] = [
     location: "Karachi",
     features: getRandomItems(busFeatures, 7),
     available: true,
-    availability: true
-  }
+    availability: true,
+  },
 ];
 
 // Mock Mini Buses Data
 export const miniBusesData: VehicleType[] = [
   {
-    id: uuidv4(),
-    name: "ZK6729D",
-    brand: "Yutong",
+    id: "minibus-1",
+    name: "City Shuttle",
+    brand: "Hino",
     type: "minibus",
     category: "minibus",
-    image: "https://images.unsplash.com/photo-1586636186520-da88997ce36c?q=80&w=2940&auto=format&fit=crop",
+    image:
+      "https://images.unsplash.com/photo-1586636186520-da88997ce36c?q=80&w=2940&auto=format&fit=crop",
     seatingCapacity: 30,
     seats: 30,
     pricePerHour: 17000 / 12,
@@ -390,15 +433,16 @@ export const miniBusesData: VehicleType[] = [
     location: "Karachi",
     features: getRandomItems(busFeatures, 5),
     available: true,
-    availability: true
+    availability: true,
   },
   {
-    id: uuidv4(),
+    id: "minibus-2",
     name: "Rainbow",
     brand: "Hino",
     type: "minibus",
     category: "minibus",
-    image: "https://images.unsplash.com/photo-15535267473-421a3ebce2df?q=80&w=2940&auto=format&fit=crop",
+    image:
+      "https://images.unsplash.com/photo-15535267473-421a3ebce2df?q=80&w=2940&auto=format&fit=crop",
     seatingCapacity: 28,
     seats: 28,
     pricePerHour: 18500 / 12,
@@ -407,15 +451,16 @@ export const miniBusesData: VehicleType[] = [
     location: "Lahore",
     features: getRandomItems(busFeatures, 4),
     available: true,
-    availability: true
+    availability: true,
   },
   {
-    id: uuidv4(),
+    id: "minibus-3",
     name: "Journey",
     brand: "Isuzu",
     type: "minibus",
     category: "minibus",
-    image: "https://images.unsplash.com/photo-1558980663-3685c1d673c4?q=80&w=2150&auto=format&fit=crop",
+    image:
+      "https://images.unsplash.com/photo-1558980663-3685c1d673c4?q=80&w=2150&auto=format&fit=crop",
     seatingCapacity: 25,
     seats: 25,
     pricePerHour: 17500 / 12,
@@ -424,15 +469,16 @@ export const miniBusesData: VehicleType[] = [
     location: "Islamabad",
     features: getRandomItems(busFeatures, 4),
     available: true,
-    availability: true
+    availability: true,
   },
   {
-    id: uuidv4(),
+    id: "minibus-4",
     name: "TGL",
     brand: "MAN",
     type: "minibus",
     category: "minibus",
-    image: "https://images.unsplash.com/photo-1549026841-5f35e6cbc28e?q=80&w=2838&auto=format&fit=crop",
+    image:
+      "https://images.unsplash.com/photo-1549026841-5f35e6cbc28e?q=80&w=2838&auto=format&fit=crop",
     seatingCapacity: 32,
     seats: 32,
     pricePerHour: 19000 / 12,
@@ -441,15 +487,16 @@ export const miniBusesData: VehicleType[] = [
     location: "Karachi",
     features: getRandomItems(busFeatures, 5),
     available: true,
-    availability: true
+    availability: true,
   },
   {
-    id: uuidv4(),
+    id: "minibus-5",
     name: "ZK6838H",
     brand: "Yutong",
     type: "minibus",
     category: "minibus",
-    image: "https://images.unsplash.com/photo-1507812916419-224806f9d66a?q=80&w=2940&auto=format&fit=crop",
+    image:
+      "https://images.unsplash.com/photo-1507812916419-224806f9d66a?q=80&w=2940&auto=format&fit=crop",
     seatingCapacity: 29,
     seats: 29,
     pricePerHour: 18000 / 12,
@@ -458,15 +505,16 @@ export const miniBusesData: VehicleType[] = [
     location: "Lahore",
     features: getRandomItems(busFeatures, 5),
     available: false,
-    availability: false
+    availability: false,
   },
   {
-    id: uuidv4(),
+    id: "minibus-6",
     name: "Melpha",
     brand: "Hino",
     type: "minibus",
     category: "minibus",
-    image: "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=2583&auto=format&fit=crop",
+    image:
+      "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=2583&auto=format&fit=crop",
     seatingCapacity: 26,
     seats: 26,
     pricePerHour: 17200 / 12,
@@ -475,15 +523,16 @@ export const miniBusesData: VehicleType[] = [
     location: "Islamabad",
     features: getRandomItems(busFeatures, 4),
     available: true,
-    availability: true
+    availability: true,
   },
   {
-    id: uuidv4(),
+    id: "minibus-7",
     name: "Journey S",
     brand: "Isuzu",
     type: "minibus",
     category: "minibus",
-    image: "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?q=80&w=2940&auto=format&fit=crop",
+    image:
+      "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?q=80&w=2940&auto=format&fit=crop",
     seatingCapacity: 24,
     seats: 24,
     pricePerHour: 16800 / 12,
@@ -492,15 +541,16 @@ export const miniBusesData: VehicleType[] = [
     location: "Rawalpindi",
     features: getRandomItems(busFeatures, 4),
     available: true,
-    availability: true
+    availability: true,
   },
   {
-    id: uuidv4(),
+    id: "minibus-8",
     name: "TGM",
     brand: "MAN",
     type: "minibus",
     category: "minibus",
-    image: "https://images.unsplash.com/photo-1630095141509-745ef962ab60?q=80&w=2940&auto=format&fit=crop",
+    image:
+      "https://images.unsplash.com/photo-1630095141509-745ef962ab60?q=80&w=2940&auto=format&fit=crop",
     seatingCapacity: 30,
     seats: 30,
     pricePerHour: 18800 / 12,
@@ -509,19 +559,20 @@ export const miniBusesData: VehicleType[] = [
     location: "Karachi",
     features: getRandomItems(busFeatures, 5),
     available: true,
-    availability: true
-  }
+    availability: true,
+  },
 ];
 
 // Mock Coasters Data
 export const coastersData: VehicleType[] = [
   {
-    id: uuidv4(),
-    name: "Coaster",
+    id: "coaster-1",
+    name: "Executive Coaster",
     brand: "Toyota",
     type: "coaster",
     category: "coaster",
-    image: "https://images.unsplash.com/photo-1543984613-f55ca6a1ba35?q=80&w=2805&auto=format&fit=crop",
+    image:
+      "https://images.unsplash.com/photo-1543984613-f55ca6a1ba35?q=80&w=2805&auto=format&fit=crop",
     seatingCapacity: 22,
     seats: 22,
     pricePerHour: 12000 / 12,
@@ -530,15 +581,16 @@ export const coastersData: VehicleType[] = [
     location: "Karachi",
     features: getRandomItems(busFeatures, 4),
     available: true,
-    availability: true
+    availability: true,
   },
   {
-    id: uuidv4(),
+    id: "coaster-2",
     name: "ZK6601D",
     brand: "Yutong",
     type: "coaster",
     category: "coaster",
-    image: "https://images.unsplash.com/photo-1606063143575-273444237492?q=80&w=2873&auto=format&fit=crop",
+    image:
+      "https://images.unsplash.com/photo-1606063143575-273444237492?q=80&w=2873&auto=format&fit=crop",
     seatingCapacity: 20,
     seats: 20,
     pricePerHour: 11500 / 12,
@@ -547,15 +599,16 @@ export const coastersData: VehicleType[] = [
     location: "Lahore",
     features: getRandomItems(busFeatures, 4),
     available: true,
-    availability: true
+    availability: true,
   },
   {
-    id: uuidv4(),
+    id: "coaster-3",
     name: "KLQ6702",
     brand: "Higer",
     type: "coaster",
     category: "coaster",
-    image: "https://images.unsplash.com/photo-1607424064879-708250e57647?q=80&w=2940&auto=format&fit=crop",
+    image:
+      "https://images.unsplash.com/photo-1607424064879-708250e57647?q=80&w=2940&auto=format&fit=crop",
     seatingCapacity: 23,
     seats: 23,
     pricePerHour: 12500 / 12,
@@ -564,15 +617,16 @@ export const coastersData: VehicleType[] = [
     location: "Islamabad",
     features: getRandomItems(busFeatures, 5),
     available: true,
-    availability: true
+    availability: true,
   },
   {
-    id: uuidv4(),
+    id: "coaster-4",
     name: "Coaster Deluxe",
     brand: "Toyota",
     type: "coaster",
     category: "coaster",
-    image: "https://images.unsplash.com/photo-1562618241-c3a6f7c94a43?q=80&w=2940&auto=format&fit=crop",
+    image:
+      "https://images.unsplash.com/photo-1562618241-c3a6f7c94a43?q=80&w=2940&auto=format&fit=crop",
     seatingCapacity: 24,
     seats: 24,
     pricePerHour: 13000 / 12,
@@ -581,15 +635,16 @@ export const coastersData: VehicleType[] = [
     location: "Karachi",
     features: getRandomItems(busFeatures, 5),
     available: true,
-    availability: true
+    availability: true,
   },
   {
-    id: uuidv4(),
+    id: "coaster-5",
     name: "ZK6669D",
     brand: "Yutong",
     type: "coaster",
     category: "coaster",
-    image: "https://images.unsplash.com/photo-1593465354797-0d49473d12a0?q=80&w=2940&auto=format&fit=crop",
+    image:
+      "https://images.unsplash.com/photo-1593465354797-0d49473d12a0?q=80&w=2940&auto=format&fit=crop",
     seatingCapacity: 21,
     seats: 21,
     pricePerHour: 12200 / 12,
@@ -598,15 +653,16 @@ export const coastersData: VehicleType[] = [
     location: "Lahore",
     features: getRandomItems(busFeatures, 4),
     available: false,
-    availability: false
+    availability: false,
   },
   {
-    id: uuidv4(),
+    id: "coaster-6",
     name: "KLQ6802",
     brand: "Higer",
     type: "coaster",
     category: "coaster",
-    image: "https://images.unsplash.com/photo-1504575070132-986227df99f7?q=80&w=2701&auto=format&fit=crop",
+    image:
+      "https://images.unsplash.com/photo-1504575070132-986227df99f7?q=80&w=2701&auto=format&fit=crop",
     seatingCapacity: 22,
     seats: 22,
     pricePerHour: 12300 / 12,
@@ -615,15 +671,16 @@ export const coastersData: VehicleType[] = [
     location: "Islamabad",
     features: getRandomItems(busFeatures, 4),
     available: true,
-    availability: true
+    availability: true,
   },
   {
-    id: uuidv4(),
+    id: "coaster-7",
     name: "Coaster Premium",
     brand: "Toyota",
     type: "coaster",
     category: "coaster",
-    image: "https://images.unsplash.com/photo-1542282088-fe8426682b8f?q=80&w=2874&auto=format&fit=crop",
+    image:
+      "https://images.unsplash.com/photo-1542282088-fe8426682b8f?q=80&w=2874&auto=format&fit=crop",
     seatingCapacity: 25,
     seats: 25,
     pricePerHour: 13500 / 12,
@@ -632,8 +689,8 @@ export const coastersData: VehicleType[] = [
     location: "Rawalpindi",
     features: getRandomItems(busFeatures, 5),
     available: true,
-    availability: true
-  }
+    availability: true,
+  },
 ];
 
 // Combine all vehicle data
@@ -641,7 +698,7 @@ export const allVehicles = [
   ...carsData,
   ...busesData,
   ...miniBusesData,
-  ...coastersData
+  ...coastersData,
 ];
 
 // Mock bookings data
@@ -661,7 +718,7 @@ export const mockBookings: Booking[] = [
     totalPrice: 6500,
     status: "completed",
     paymentStatus: "completed",
-    createdAt: "2025-04-20T15:30:00"
+    createdAt: "2025-04-20T15:30:00",
   },
   {
     id: uuidv4(),
@@ -678,14 +735,14 @@ export const mockBookings: Booking[] = [
     totalPrice: 56000,
     status: "upcoming",
     paymentStatus: "pending",
-    createdAt: "2025-05-15T11:45:00"
+    createdAt: "2025-05-15T11:45:00",
   },
   {
     id: uuidv4(),
     userId: "user123",
-    vehicleId: coastersData[1].id,
-    vehicleName: coastersData[1].name,
-    vehicleBrand: coastersData[1].brand,
+    vehicleId: coastersData[0].id,
+    vehicleName: coastersData[0].name,
+    vehicleBrand: coastersData[0].brand,
     rentalPlan: "3day",
     withDriver: false,
     pickupLocation: "Islamabad Bus Terminal",
@@ -695,7 +752,7 @@ export const mockBookings: Booking[] = [
     totalPrice: 33000,
     status: "cancelled",
     paymentStatus: "failed",
-    createdAt: "2025-05-10T14:20:00"
+    createdAt: "2025-05-10T14:20:00",
   },
   {
     id: uuidv4(),
@@ -712,7 +769,7 @@ export const mockBookings: Booking[] = [
     totalPrice: 8000,
     status: "upcoming",
     paymentStatus: "pending",
-    createdAt: "2025-05-18T10:15:00"
+    createdAt: "2025-05-18T10:15:00",
   },
   {
     id: uuidv4(),
@@ -729,8 +786,8 @@ export const mockBookings: Booking[] = [
     totalPrice: 37000,
     status: "completed",
     paymentStatus: "completed",
-    createdAt: "2025-04-15T09:30:00"
-  }
+    createdAt: "2025-04-15T09:30:00",
+  },
 ];
 
 // Provinces of Pakistan for profile form
@@ -741,5 +798,39 @@ export const pakistanProvinces = [
   "Balochistan",
   "Gilgit-Baltistan",
   "Azad Jammu and Kashmir",
-  "Islamabad Capital Territory"
+  "Islamabad Capital Territory",
+];
+
+// Mock Bookings Data
+export const BOOKINGS_DATA: Booking[] = [
+  {
+    id: uuidv4(),
+    userId: "user123",
+    vehicleId: "coaster-1",
+    startDate: new Date("2024-03-20"),
+    endDate: new Date("2024-03-23"),
+    status: "pending",
+    totalPrice: 25000,
+    createdAt: new Date("2024-03-15"),
+  },
+  {
+    id: uuidv4(),
+    userId: "user456",
+    vehicleId: "car-1",
+    startDate: new Date("2024-03-18"),
+    endDate: new Date("2024-03-20"),
+    status: "confirmed",
+    totalPrice: 15000,
+    createdAt: new Date("2024-03-10"),
+  },
+  {
+    id: uuidv4(),
+    userId: "user789",
+    vehicleId: "bus-1",
+    startDate: new Date("2024-03-25"),
+    endDate: new Date("2024-04-01"),
+    status: "pending",
+    totalPrice: 45000,
+    createdAt: new Date("2024-03-12"),
+  },
 ];
