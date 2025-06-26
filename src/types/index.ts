@@ -1,6 +1,6 @@
 // User and Profile types
 export interface User {
-  id: string;
+  _id: string;
   name: string;
   email: string;
   city: string;
@@ -12,10 +12,8 @@ export interface User {
 }
 
 export interface UserProfile {
-  name: string;
-  email: string;
   dob?: string;
-  gender?: string;
+  gender?: "male" | "female" | "other";
   cnic?: string;
   province?: string;
   city?: string;
@@ -24,29 +22,22 @@ export interface UserProfile {
 
 // Vehicle related types
 export interface VehicleType {
-  id: string;
-  _id?: string; // Optional MongoDB ID
+  _id: string;
   name: string;
   brand: string;
-  category?: "car" | "bus" | "minibus" | "coaster";
-  image: string;
-  seats?: number;
-  price?: number;
+  model: string;
+  type: "Car" | "Bus" | "Mini Bus" | "Coaster";
   location: string;
+  pricePerDay: number;
+  pricePerHour: number;
+  seatingCapacity: number;
+  transmission: "Manual" | "Automatic";
+  fuelType: "Petrol" | "Diesel" | "Hybrid" | "Electric";
   features: string[];
-  availability?: boolean;
-  // Additional properties
-  transmission?: "manual" | "automatic";
-  fuelType?: "petrol" | "diesel" | "hybrid" | "electric";
+  images: string[];
+  availability: boolean;
   rating?: number;
   reviews?: number;
-  isPremium?: boolean;
-  pricePerHour?: number;
-  pricePerDay?: number;
-  // Properties being used in mockData and VehicleCard
-  type: "car" | "bus" | "minibus" | "coaster";
-  seatingCapacity: number;
-  available: boolean;
 }
 
 // Booking related types
@@ -70,28 +61,18 @@ export interface BookingFormData {
   vehicleId?: string;
 }
 
-export type BookingStatus = "pending" | "confirmed" | "cancelled" | "completed";
-
 export interface Booking {
   _id: string;
   user: string | User;
-  vehicle: string | VehicleType;
+  vehicle: VehicleType;
   startDate: string;
   endDate: string;
-  includeDriver: boolean;
-  price: number;
-  status: BookingStatus;
   pickupLocation: string;
   dropLocation: string;
-  notes?: string;
-  sharedRide?: {
-    enabled: boolean;
-    riderInfo?: {
-      name: string;
-      phone: string;
-      email?: string;
-    };
-  };
+  includeDriver: boolean;
+  price: number;
+  status: "pending" | "confirmed" | "completed" | "cancelled";
+  paymentStatus: "pending" | "completed" | "refunded";
   createdAt: string;
   updatedAt: string;
 }
